@@ -1,6 +1,6 @@
 #include "Arduino_BHY2.h"
 
-#define sensitivity_accel 4096/9.81 
+#define sensitivity_accel 9.81/4096 
 #define interval 100 // in milliseconds
 
 Sensor pressure(SENSOR_ID_BARO);
@@ -22,7 +22,7 @@ void loop() {
   if (current_timestamp - prev_timestamp >= interval) {
     prev_timestamp = current_timestamp;  
 
-    float accel_valueZ = accel.z() / sensitivity_accel;
+    float accel_valueZ = accel.z() * sensitivity_accel;
 
     Serial.print("Timestamp: ");
     Serial.print(current_timestamp);
@@ -32,3 +32,4 @@ void loop() {
     Serial.println(pressure.value());
   }
 }
+

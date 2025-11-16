@@ -1,7 +1,6 @@
 #include "Arduino_BHY2.h"
 Sensor pressure(SENSOR_ID_BARO);
 
-int count = 0;
 unsigned long prev_timestamp = 0;
 
 void setup() {
@@ -22,9 +21,5 @@ void loop() {
     Serial.print(" Pressure:");
     Serial.println(pressure.value());
 
-    count++;
-    if(count >= 1000) {
-      exit(0);
     }
-  }
 }

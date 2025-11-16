@@ -7,7 +7,6 @@
 SensorXYZ accel(SENSOR_ID_ACC_PASS);
 
 unsigned long previous_timestamp = 0;
-int count = 0;
 
 void setup() {
   Serial.begin(115200);
@@ -35,9 +34,5 @@ void loop() {
     Serial.print(" Accel Z:");
     Serial.println(accel_valueZ);
 
-    count++;
-    if (count >= 1000) {
-      exit(0);
-    }
   }
 }
